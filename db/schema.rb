@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(:version => 20100928024428) do
 
   create_table "questions", :force => true do |t|
-    t.string   "text"
-    t.string   "answer"
+    t.text     "text"
+    t.text     "answer"
     t.datetime "answered_at"
     t.datetime "created_at"
     t.datetime "updated_at"
