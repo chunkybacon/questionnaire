@@ -1,0 +1,4 @@
+<div class="questions answered">
+  <%= render :partial => 'question', :collection => @questions %>
+  <%= will_paginate(@questions) %>
+</div>

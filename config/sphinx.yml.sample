@@ -1,0 +1,24 @@
+development:
+  port: 9313
+  morphology: "stem_ru"
+  #searchd_file_path: "/var/sphinx/questionnaire/development"
+  max_matches: 10000
+  mem_limit: 256M
+  bin_path: "/usr/local/bin"
+
+test:
+  port: 9313
+  morphology: "stem_ru"
+  #searchd_file_path: "/var/sphinx/questionnaire/test"
+  max_matches: 10000
+  mem_limit: 256M
+  bin_path: "/usr/local/bin"
+
+production:
+  port: 9313
+  morphology: "stem_ru"
+  #searchd_file_path: "/var/sphinx/questionnaire/production"
+  max_matches: 10000
+  mem_limit: 128M
+  bin_path:"/usr/local/bin""/opt/brew/bin"
+

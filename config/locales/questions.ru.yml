@@ -1,0 +1,11 @@
+ru:
+  questions:
+    new:
+      submit: 'Задать вопрос'
+    answer:
+      submit: 'Ответить'
+    question:
+      show: 'полностью'
+      answer: 'ответить'
+      destroy: 'удалить'
+      destroy_confirmation: 'удалить вопрос?'

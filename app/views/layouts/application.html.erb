@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Questionnaire</title>
+  <%= stylesheet_link_tag 'common' %>
+  <%= javascript_include_tag 'jquery.min' %>
+  <%= javascript_include_tag 'rails' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div id="menu">
+      <%= link_to "задать новый вопрос", new_question_path %><br/>
+      <%= link_to "неотвеченные", queue_questions_path %><br/>
+      <%= link_to "отвеченные", answered_questions_path %><br/>
+    </div>
+  </div>
+  <div id="content">
+    <%= yield %>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div class="text">
+  <%= @question.text %>
+</div>
+
+<%= simple_form_for(@question) do |f| %>
+
+  <%= f.input :answer, :as => :text, :required => false, :wrapper_html => {:class => 'answer'} %>
+
+  <div class="actions">
+    <%= f.button :submit, t("questions.#{controller.action_name}.submit") %>
+  </div>
+
+<% end %>
