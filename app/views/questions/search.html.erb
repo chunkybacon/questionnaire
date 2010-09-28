@@ -1,6 +1,13 @@
+<%= simple_form_for(:search, :html => {:method => :get}) do |f| %>
+  <%= f.input :query %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <div class="questions search">
-  <% if params.key?(:query) %>
-    <% if @question.blank? %>
+  <% if @search %>
+    <% if @questions.blank? %>
       <div class="empty"><%= t('.empty') %></div>
     <% else %>
       <%= render :partial => 'question', :collection => @questions %>
