@@ -3,8 +3,7 @@
 <head>
   <title>Questionnaire</title>
   <%= stylesheet_link_tag 'common' %>
-  <%= javascript_include_tag 'jquery.min' %>
-  <%= javascript_include_tag 'rails' %>
+  <%= javascript_include_tag 'jquery.min', 'rails', 'jquery.corner', 'application' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -14,6 +13,7 @@
       <%= link_to "задать новый вопрос", new_question_path %><br/>
       <%= link_to "неотвеченные", queue_questions_path %><br/>
       <%= link_to "отвеченные", answered_questions_path %><br/>
+      <%= link_to "поиск", search_questions_path %><br/>
     </div>
   </div>
   <div id="content">
