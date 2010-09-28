@@ -4,6 +4,7 @@ Questionnaire::Application.routes.draw do
     collection do
       get :queue
       get :answered
+      get :search
     end
   end
 

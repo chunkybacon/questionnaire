@@ -18,6 +18,7 @@ class Question < ActiveRecord::Base
     indexes :text
     indexes :answer
     has :answered_at, :created_at
+    set_property :delta => :delayed
   end
 
 end
