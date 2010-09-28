@@ -1,0 +1,6 @@
+ru:
+  simple_form:
+    labels:
+      question:
+        text: 'Текст вопроса'
+        answer: 'Ответ'

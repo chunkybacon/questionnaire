@@ -1,7 +1,7 @@
 <%= simple_form_for(:search, :html => {:method => :get}) do |f| %>
   <%= f.input :query %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.submit') %>
   </div>
 <% end %>
 
@@ -10,6 +10,7 @@
     <% if @questions.blank? %>
       <div class="empty"><%= t('.empty') %></div>
     <% else %>
+      <div class="totals meta"><%= t('.totals', :count => @questions.total_entries) %></div>
       <%= render :partial => 'question', :collection => @questions %>
       <%= will_paginate(@questions) %>
     <% end %>

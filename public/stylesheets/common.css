@@ -1,10 +1,11 @@
 body, div, form { margin: 0; padding: 0; border: none; }
 
-body            { background: #202326; color: #fff; font: normal 100% Helvetica, Verdana, sans-serif; }
+body            { background: #202326; color: #FFF; font: normal 100% Helvetica, Verdana, sans-serif; }
 div#container   { width: 36em; margin-left: -18em; left: 50%; position: absolute; float: left; clear: both; }
 div#header      { background: #282C2F; width: 100%; padding: 1.5em 0; border-bottom: 1px solid #202326;}
 div#content     { background: #303538; width: 100%; padding: 2em 0 3em 0; margin-bottom: 2em; float: left; font-size: 100%; }
-div#menu        { margin-left: 3em; }
+ul#menu         { margin: 0 0 0 3em; padding: 0; list-style: none; }
+ul#menu li      { color: #FFDD99; font-size: 0.9em; }
 
 div.string,
 div.text,
@@ -12,23 +13,31 @@ div.answer,
 div.empty,
 div.actions                 { width: 30em; padding: 0 3em; margin-bottom: 0.5em; }
 div.actions                 { text-align: right; color: #C7FF68; }
+
 div.pagination,
 div.empty                   { margin: 1em 0 2em 0; text-align: center; }
+
+div.actions a,
+div.pagination              { font-size: 0.9em; }
 
 div.text                    { background: url('/images/q.png') 1.3em 0 no-repeat; }
 div.answer                  { background: url('/images/a.png') 1.3em 0 no-repeat; }
 
-form div.answer             { background: none; margin-top: 2em; }
+form.qa                     { margin-top: 2em; }
 form div.text               { background: none; }
 form div.text textarea      { margin-bottom: 0.5em; width: 100%; height: 8em; }
 form div.string input       { margin-bottom: 0.5em; width: 100%; }
-form label                  { display: block; }
+form label                  { display: block; margin-bottom: 0.5em; }
 form.search                 { margin-bottom: 2em; }
 
 div.questions               { border-top: 1px dashed #202326; }
-div.question                { padding: 1em 0; border-bottom: 1px dashed #202326;}
+div.question                { padding: 1.5em 0 1em 0; border-bottom: 1px dashed #202326;}
 div.question div.actions    { text-align: left; }
 
-a                           { color: #C7FF68; font-size: 0.9em; text-decoration: none; }
-div.meta                    { color: #535B61; font-size: 0.8em; margin-top: 0.3em; }
+a                           { color: #C7FF68; text-decoration: none; }
+a:hover, a:active           { color: #FFDD99; }
+
+div.meta                    { color: #535B61; font-size: 0.8em; }
+div.question div.meta       { margin-top: 0.3em; }
+div.totals                  { background: #282C2F; text-align: center; border-bottom: 1px dashed #202326; padding: 1em 0;}
 span.error                  { color: red; font-size: 0.9em; }

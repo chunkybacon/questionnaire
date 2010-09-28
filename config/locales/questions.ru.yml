@@ -1,7 +1,14 @@
 ru:
   questions:
+    menu:
+      new: задать новый вопрос
+      queue: неотвеченные
+      answered: отвеченные
+      search: поиск
     search:
       empty:  'Ничего не найдено.'
+      submit: 'искать'
+      totals: 'найдено вопросов: %{count}'
     queue:
       empty:  'Вопросы, ожидающие ответа, отсутствуют.'
     answered:
