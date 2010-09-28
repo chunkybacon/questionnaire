@@ -2,11 +2,13 @@
 
   <div class="text">
     <%= question.text %>
+    <div class="meta"><%= l(question.created_at) %></div>
   </div>
 
   <% if question.answer %>
     <div class="answer">
       <%= question.answer %>
+      <div class="meta"><%= l(question.answered_at) %></div>
     </div>
   <% end %>
 
