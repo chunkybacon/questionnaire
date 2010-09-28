@@ -17,6 +17,7 @@ class Question < ActiveRecord::Base
     where('answered_at IS NOT NULL')
     indexes :text
     indexes :answer
+    has :answered_at, :created_at
   end
 
 end
