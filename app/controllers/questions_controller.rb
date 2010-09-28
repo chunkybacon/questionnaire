@@ -2,6 +2,12 @@ class QuestionsController < ApplicationController
   actions :new, :create, :update, :edit, :destroy
 
   def search
+    @questions = Question.search(params[:query],
+      :rank_mode      => :wordcount,
+      :sort_mode      => :extended,
+      :order          => '@relevance DESC, answered_at DESC',
+      :field_weights  => { :text => 2, :answer => 1 }
+    )
   end
 
   def queue
