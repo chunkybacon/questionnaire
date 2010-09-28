@@ -25,5 +25,6 @@ div#header      { background: #282C2F; border-bottom: 1px solid #202326; }
 div#content     { background: #303538; font-size: 100%; }
 a               { color: #C7FF68; text-decoration: none; }
 div.meta        { color: #535B61; }
-div.pagination  { width: 30em; margin: 1em 2em 0 3em; text-align: center; }
+div.pagination,
+div.empty       { width: 30em; margin: 1em 2em 0 3em; text-align: center; }
 span.error      { color: red; font-size: 0.9em; }

@@ -1,4 +1,8 @@
 <div class="questions queue">
-  <%= render :partial => 'question', :collection => @questions %>
-  <%= will_paginate(@questions) %>
+  <% if @questions.blank? %>
+    <div class="empty"><%= t('.empty') %></div>
+  <% else %>
+    <%= render :partial => 'question', :collection => @questions %>
+    <%= will_paginate(@questions) %>
+  <% end %>
 </div>

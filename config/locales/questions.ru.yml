@@ -1,5 +1,11 @@
 ru:
   questions:
+    search:
+      empty:  'Ничего не найдено.'
+    queue:
+      empty:  'Вопросы, ожидающие ответа, отсутствуют.'
+    answered:
+      empty:  'Вопросы, получившие ответ, отсутствуют.'
     new:
       submit: 'Задать вопрос'
     answer:
@@ -8,4 +14,4 @@ ru:
       show: 'полностью'
       answer: 'ответить'
       destroy: 'удалить'
-      destroy_confirmation: 'удалить вопрос?'
+      destroy_confirmation: 'Удалить вопрос?'

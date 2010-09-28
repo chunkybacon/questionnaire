@@ -1,4 +1,10 @@
 <div class="questions search">
-  <%= render :partial => 'question', :collection => @questions %>
-  <%= will_paginate(@questions) %>
+  <% if params.key?(:query) %>
+    <% if @question.blank? %>
+      <div class="empty"><%= t('.empty') %></div>
+    <% else %>
+      <%= render :partial => 'question', :collection => @questions %>
+      <%= will_paginate(@questions) %>
+    <% end %>
+  <% end %>
 </div>
