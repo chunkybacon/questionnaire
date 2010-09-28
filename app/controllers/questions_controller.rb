@@ -1,12 +1,7 @@
 class QuestionsController < ApplicationController
-  actions :new, :create, :update, :destroy
+  actions :new, :create, :update, :edit, :destroy
 
   def search
-    
-  end
-
-  def answer
-    @question = Question.find(params[:id])
   end
 
   def queue
@@ -21,22 +16,8 @@ class QuestionsController < ApplicationController
       paginate(:per_page => 5, :page => params[:page])
   end
 
-  def update
-    super do |format|
-      format.html { redirect_to answered_questions_path }
-    end
-  end
-
-  def create
-    super do |format|
-      format.html { redirect_to new_question_path }
-    end
-  end
-
-  def destroy
-    super do |format|
-      format.html { redirect_to :back }
-    end
-  end
+  create!   { new_question_path }
+  update!   { answered_questions_path }
+  destroy!  { :back }
 
 end

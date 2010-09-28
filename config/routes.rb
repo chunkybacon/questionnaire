@@ -1,12 +1,9 @@
 Questionnaire::Application.routes.draw do
 
-  resources :questions do
+  resources :questions, :path_names => {:edit => 'answer'} do
     collection do
       get :queue
       get :answered
-    end
-    member do
-      get :answer
     end
   end
 

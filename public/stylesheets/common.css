@@ -9,7 +9,7 @@ div.text                    { width: 30em; margin: 0 3em 2em 3em;}
 div.answer                  { width: 30em; margin: 0 3em 0.5em 3em;}
 form                        { width: 30em; margin-left: 3em; }
 form div.text               { width: 100%; margin: 0 0 0.5em 0; }
-div.text textarea           { height: 8em; width: 100%;}
+div.text textarea           { height: 8em; width: 100%; margin-bottom: 0.5em; }
 div.text label              { display: block; }
 div.actions                 { text-align: right; color: #C7FF68; }
 
@@ -26,3 +26,4 @@ div#content     { background: #303538; font-size: 100%; }
 a               { color: #C7FF68; text-decoration: none; }
 div.meta        { color: #535B61; }
 div.pagination  { width: 30em; margin: 1em 2em 0 3em; text-align: center; }
+span.error      { color: red; font-size: 0.9em; }

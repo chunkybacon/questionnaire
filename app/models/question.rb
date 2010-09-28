@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
 
   validates_length_of   :text   , :in => 5..1000
-  validates_length_of   :answer , :maximum => 3000
+  validates_length_of   :answer , :in => 5..3000, :allow_nil => true
 
   scope :answered , where('answer IS NOT NULL')
   scope :queue    , where('answer IS NULL')
