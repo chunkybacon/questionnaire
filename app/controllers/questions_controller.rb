@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   actions :new, :create, :update, :edit, :destroy
 
+  responders :flash
+
   def search
     return unless @search = SearchOptions.from_hash(params[:search])
     @questions = Question.search(@search.query,

@@ -10,7 +10,7 @@
     <% if @questions.blank? %>
       <div class="empty"><%= t('.empty') %></div>
     <% else %>
-      <div class="totals meta"><%= t('.totals', :count => @questions.total_entries) %></div>
+      <div class="totals"><%= t('.totals', :count => @questions.total_entries) %></div>
       <%= render :partial => 'question', :collection => @questions %>
       <%= will_paginate(@questions) %>
     <% end %>

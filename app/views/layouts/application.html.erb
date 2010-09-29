@@ -16,6 +16,13 @@
       <li><%= link_to_unless_current t('questions.menu.search'), search_questions_path %></li>
     </ul>
   </div>
+
+  <% if flash.key?(:notice) %>
+    <div id="flash" class="notice"><%= flash[:notice] %></div>
+  <% elsif flash.key?(:alert) %>
+    <div id="flash" class="alert"><%= flash[:alert] %></div>
+  <% end %>
+
   <div id="content">
     <%= yield %>
   </div>

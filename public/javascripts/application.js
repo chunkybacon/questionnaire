@@ -14,4 +14,18 @@ jQuery(function($) {
     'maxCharsWarning' : 900,
   });
 
+  var flashBox = $('#flash')
+
+  function notify(container) {
+    container.show('slow');
+    setTimeout(
+      function(){
+        container.hide('slow', function(){ container.html(''); });
+      }, 3000
+    );
+  }
+
+  flashBox.hide();
+  if (flashBox.html() && flashBox.html().trim() != '') { notify(flashBox); }
+
 });

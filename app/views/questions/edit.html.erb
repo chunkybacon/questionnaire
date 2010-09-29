@@ -1,8 +1,8 @@
-<div class="text">
+<div class="text ico">
   <%= @question.text %>
 </div>
 
-<%= simple_form_for(@question, :html => {:class => 'qa'}) do |f| %>
+<%= simple_form_for(@question, :html => {:class => 'edit'}) do |f| %>
 
   <%= f.input :answer, :as => :text, :required => true %>
 
