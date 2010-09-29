@@ -4,7 +4,7 @@
 
 <%= simple_form_for(@question, :html => {:class => 'qa'}) do |f| %>
 
-  <%= f.input :answer, :as => :text, :required => true, :input_html => {:class => 'countable'} %>
+  <%= f.input :answer, :as => :text, :required => true %>
 
   <div class="actions">
     <%= f.button :submit, t("questions.answer.submit") %>

@@ -3,4 +3,15 @@
 
 jQuery(function($) {
   $('#content').corner('bottom 12px');
+
+  $('#question_answer').jqCounter({
+    'maxChars'        : 5000,
+    'maxCharsWarning' : 4900,
+  });
+
+  $('#question_text').jqCounter({
+    'maxChars'        : 1000,
+    'maxCharsWarning' : 900,
+  });
+
 });

@@ -27,7 +27,7 @@ form.qa                     { margin-top: 2em; }
 form div.text               { background: none; }
 form div.text textarea      { margin-bottom: 0.5em; width: 100%; height: 8em; }
 form div.string input       { margin-bottom: 0.5em; width: 100%; }
-form label                  { display: block; margin-bottom: 0.5em; }
+form label                  { display: block; padding-bottom: 0.5em; width: 50%; float: left; }
 form.search                 { margin-bottom: 2em; }
 
 div.questions               { border-top: 1px dashed #202326; }
@@ -41,3 +41,8 @@ div.meta                    { color: #535B61; font-size: 0.8em; }
 div.question div.meta       { margin-top: 0.3em; }
 div.totals                  { background: #282C2F; text-align: center; border-bottom: 1px dashed #202326; padding: 1em 0;}
 span.error                  { color: red; font-size: 0.9em; }
+
+
+div.jqCounterMsg            { font-size: 1.5em; float: left; width: 50%; text-align: right;}
+div.jqCounterMsg.notice     { color: #C7FF68; }
+div.jqCounterMsg.warning    { color: red; }
