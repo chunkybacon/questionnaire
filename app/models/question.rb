@@ -6,6 +6,11 @@ class Question < ActiveRecord::Base
   scope :answered , where('answer IS NOT NULL')
   scope :queue    , where('answer IS NULL')
 
+  before_create do
+    self.delta = false
+    true
+  end
+
   def answer=(value)
     return if value.blank?
     write_attribute :delta        , true
