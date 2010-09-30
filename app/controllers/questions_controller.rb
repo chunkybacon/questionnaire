@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  actions :new, :create, :update, :edit, :destroy
+  actions :new, :create, :update, :show, :edit, :destroy
 
   responders :flash
 

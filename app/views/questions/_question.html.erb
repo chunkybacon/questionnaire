@@ -14,9 +14,10 @@
 
   <div class="actions">
     <% unless question.answer %>
-      <%= link_to t('.answer'), edit_question_path(question.id) %> | 
+      <%= link_to t('.answer'), edit_question_path(question.id) %> &sdot
     <% end %>
-    <%= link_to t('.destroy'), question_path(question.id), 'data-method' => 'delete', 'data-confirm' => t('.destroy_confirmation') %>
+    <%= link_to t('.destroy'), question_path(question.id), 'data-method' => 'delete', 'data-confirm' => t('.destroy_confirmation') %> &sdot
+    <%= link_to t('.show', :id => question.id), question_path(question.id) %>
   </div>
 
 </div>

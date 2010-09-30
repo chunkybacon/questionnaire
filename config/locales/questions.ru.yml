@@ -1,10 +1,18 @@
 ru:
   questions:
+
+    actions: &actions
+      show : '#%{id}'
+      answer: 'ответить'
+      destroy : 'удалить'
+      destroy_confirmation : 'Удалить вопрос?'
+
     menu:
       new: задать новый вопрос
       queue: неотвеченные
       answered: отвеченные
       search: поиск
+
     search:
       match_mode: 'искать по:'
       match_modes:
@@ -20,8 +28,8 @@ ru:
       submit: 'искать'
       totals: 'найдено вопросов: %{count}'
       destroy_confirmation: 'Удалить вопрос?'
-      destroy: 'удалить'
       pre: 'Что ищем?'
+      <<: *actions
     queue:
       empty:  'Вопросы, ожидающие ответа, отсутствуют.'
     answered:
@@ -31,7 +39,6 @@ ru:
     answer:
       submit: 'Ответить'
     question:
-      show: 'полностью'
-      answer: 'ответить'
-      destroy: 'удалить'
-      destroy_confirmation: 'Удалить вопрос?'
+      <<: *actions
+    show:
+      <<: *actions
