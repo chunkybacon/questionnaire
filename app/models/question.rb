@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
 
-  stripper = lambda { |s| s && s.strip }
+  stripper = lambda { |s| s && s.mb_chars.strip }
 
   validates_length_of   :text   , :in => 5..1000, :tokenizer => stripper
   validates_length_of   :answer , :in => 5..3000, :tokenizer => stripper, :allow_nil => true
