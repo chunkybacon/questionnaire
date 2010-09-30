@@ -1,14 +1,12 @@
 <div class="question">
 
   <div class="text ico">
-    <%#= collection.excerpt_for(question.text, :limit => -1) %>
-    <%= question.text %>
+    <%=raw collection.excerpt_for(h(question.text), :limit => 0) %>
     <div class="meta"><%= l(question.created_at) %></div>
   </div>
 
   <div class="answer ico">
-    <%#= collection.excerpt_for(question.answer, :limit => -1) %>
-    <%= question.answer %>
+    <%=raw collection.excerpt_for(h(question.answer), :limit => 0) %>
     <div class="meta"><%= l(question.answered_at) %></div>
   </div>
 

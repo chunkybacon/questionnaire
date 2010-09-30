@@ -5,10 +5,10 @@ div#container   { width: 36em; margin-left: -18em; left: 50%; position: absolute
 div#header      { background: #282C2F; width: 100%; padding: 1.5em 0; margin-bottom: 1px; }
 div#content     { background: #303538; width: 100%; padding: 2em 0 3em 0; margin-bottom: 2em; float: left; font-size: 100%; }
 ul#menu         { margin: 0 0 0 3em; padding: 0; list-style: none; }
-ul#menu li      { color: #FFDD99; font-size: 0.9em; }
+ul#menu li      { color: #FFF; font-size: 0.9em; }
 
-a                       { color: #C7FF68; text-decoration: none; }
-a:hover, a:active       { color: #FFDD99; }
+a                       { color: #C2D82C; text-decoration: none; }
+a:hover, a:active       { color: #FFF; }
 
 div.string,
 div.text,
@@ -17,8 +17,8 @@ div.empty,
 form.search .advanced,
 div.actions             { width: 30em; padding: 0 3em; margin-bottom: 0.5em; }
 
-div.actions             { color: #C7FF68; }
-div.actions a           { font-size: 0.9em; }
+div.actions             { color: #C2D82C; }
+div.actions a           { font-size: 0.8em; }
 div.errors              { margin: 1em 0; text-align: center; font-size: 0.9em; line-height: 1.3em; }
 div.pagination          { margin: 1em 0; text-align: center; font-size: 0.9em; }
 div.empty               { margin: 1em 0; text-align: center; }
@@ -40,11 +40,13 @@ div.question            { padding: 1.5em 0 1em 0; border-bottom: 1px dashed #202
 div.meta                { color: #535B61; font-size: 0.8em; margin-top: 0.3em; }
 div.totals              { color: #535B61; font-size: 0.8em; background: #282C2F; text-align: center; border-bottom: 1px dashed #202326; padding: 1em 0; }
 
-.error                  { color: red; font-size: 0.9em; }
+.error                  { color: #F25C2E; font-size: 0.9em; }
 .jqCounterMsg           { font-size: 1.5em; float: left; width: 50%; text-align: right;}
-.jqCounterMsg.notice    { color: #C7FF68; }
-.jqCounterMsg.warning   { color: red; }
+.jqCounterMsg.notice    { color: #C2D82C; }
+.jqCounterMsg.warning   { color: #F25C2E; }
 
 div#flash               { background: #282C2F; width: 30em; padding: 0.5em 3em; text-align: center; margin-bottom: 1px; }
-div#flash.notice        { color: #C7FF68; }
-div#flash.alert         { color: red; }
+div#flash.notice        { color: #C2D82C; }
+div#flash.alert         { color: #F25C2E; }
+
+span.match              { color: #F2F68D; }
