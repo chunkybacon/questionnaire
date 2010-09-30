@@ -36,6 +36,6 @@ class QuestionsController < ApplicationController
 
   create!   { new_question_path }
   update!   { answered_questions_path }
-  destroy!  { :back }
+  destroy!  { request.referer.blank? ? root_url : request.referer }
 
 end
