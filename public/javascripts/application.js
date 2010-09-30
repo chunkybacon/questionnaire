@@ -5,8 +5,8 @@ jQuery(function($) {
   $('#content').corner('bottom 12px');
 
   $('#question_answer').jqCounter({
-    'maxChars'        : 5000,
-    'maxCharsWarning' : 4900,
+    'maxChars'        : 3000,
+    'maxCharsWarning' : 2900,
   });
 
   $('#question_text').jqCounter({
