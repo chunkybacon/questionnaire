@@ -1,7 +1,9 @@
 class Question < ActiveRecord::Base
 
-  validates_length_of   :text   , :in => 5..1000
-  validates_length_of   :answer , :in => 5..3000, :allow_nil => true
+  stripper = lambda { |s| s && s.strip }
+
+  validates_length_of   :text   , :in => 5..1000, :tokenizer => stripper
+  validates_length_of   :answer , :in => 5..3000, :tokenizer => stripper, :allow_nil => true
 
   scope :answered , where('answer IS NOT NULL')
   scope :queue    , where('answer IS NULL')
@@ -11,11 +13,9 @@ class Question < ActiveRecord::Base
     true
   end
 
-  def answer=(value)
-    return if value.blank?
-    write_attribute :delta        , true
-    write_attribute :answer       , value
-    write_attribute :answered_at  , current_time_from_proper_timezone
+  before_update do
+    self.answered_at = current_time_from_proper_timezone if answer && !answered_at
+    self.delta = false unless text_changed? || answer_changed?
   end
 
   define_index do
