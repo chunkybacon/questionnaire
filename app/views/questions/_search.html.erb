@@ -1,0 +1,19 @@
+<div class="question">
+
+  <div class="text ico">
+    <%#= collection.excerpt_for(question.text, :limit => -1) %>
+    <%= question.text %>
+    <div class="meta"><%= l(question.created_at) %></div>
+  </div>
+
+  <div class="answer ico">
+    <%#= collection.excerpt_for(question.answer, :limit => -1) %>
+    <%= question.answer %>
+    <div class="meta"><%= l(question.answered_at) %></div>
+  </div>
+
+  <div class="actions">
+    <%= link_to t('.destroy'), question_path(question.id), 'data-method' => 'delete', 'data-confirm' => t('.destroy_confirmation') %>
+  </div>
+
+</div>

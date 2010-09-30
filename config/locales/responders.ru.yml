@@ -4,7 +4,7 @@ ru:
       create:
         notice: 'Вопрос принят.'
       update:
-        notice: 'Вопрос добавлен.'
+        notice: 'Ответ принят.'
       destroy:
         notice: 'Вопрос удален.'
         alert: 'Не удалось удалить вопрос.'

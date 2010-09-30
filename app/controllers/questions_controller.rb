@@ -4,15 +4,22 @@ class QuestionsController < ApplicationController
   responders :flash
 
   def search
-    return unless @search = SearchOptions.from_hash(params[:search])
-    @questions = Question.search(@search.query,
+    return if params[:search].blank?
+
+    @search = Questionnaire::Search.new(params[:search])
+    return unless @search.valid?
+
+    @questions = Question.search(@search.query, @search.options(
       :rank_mode      => :wordcount,
-      :sort_mode      => :extended,
-      :order          => '@relevance DESC, answered_at DESC',
-      :field_weights  => { :text => 2, :answer => 1 },
+      :field_weights  => {:text => 2, :answer => 1},
       :per_page       => 5,
       :page           => params[:page]
-    )
+      ))
+
+    @questions.total_entries
+
+  rescue Riddle::ConnectionError
+    @search.errors.add(:base, :unavailable)
   end
 
   def queue

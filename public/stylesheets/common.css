@@ -14,10 +14,12 @@ div.string,
 div.text,
 div.answer,
 div.empty,
+form.search .advanced,
 div.actions             { width: 30em; padding: 0 3em; margin-bottom: 0.5em; }
 
 div.actions             { color: #C7FF68; }
 div.actions a           { font-size: 0.9em; }
+div.errors              { margin: 1em 0; text-align: center; font-size: 0.9em; line-height: 1.3em; }
 div.pagination          { margin: 1em 0; text-align: center; font-size: 0.9em; }
 div.empty               { margin: 1em 0; text-align: center; }
 
@@ -27,8 +29,10 @@ div.answer.ico          { background: url('/images/a.png') 1.3em 0 no-repeat; }
 form.edit               { margin-top: 2em; }
 form div.text textarea  { margin-bottom: 0.5em; width: 100%; height: 8em; }
 form div.string input   { margin-bottom: 0.5em; width: 100%; }
-form label              { display: block; padding-bottom: 0.5em; width: 50%; float: left; }
+form label              { display: block; padding-bottom: 0.3em; }
+form div.text label     { width: 50%; float: left; }
 form.search             { margin-bottom: 2em; }
+form.search div.select  { margin-bottom: 1em; }
 form div.actions        { text-align: right; }
 
 div.questions           { border-top: 1px dashed #202326; }

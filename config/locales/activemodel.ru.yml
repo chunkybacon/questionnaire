@@ -1,0 +1,15 @@
+ru:
+  activemodel:
+    errors:
+      models:
+        questionnaire/search:
+          attributes:
+            base:
+              unavailable: 'Тс-с-с, сфинкс спит.'
+            query:
+              too_short: 'Слишком короткий поисковый запрос (минимум - %{count} символов).'
+              too_long: 'Слишком длинный поисковый запрос (максимум - %{count} символов).'
+            match_mode:
+              inclusion: 'Неверный режим поиска.'
+            order_mode:
+              inclusion: 'Неверный режим сортировки.'
