@@ -38,5 +38,8 @@ module Questionnaire
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    Sass::Plugin.options[:style] = :compact
+
   end
 end

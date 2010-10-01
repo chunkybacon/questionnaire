@@ -6,3 +6,4 @@ db/sphinx
 config/*.sphinx.conf
 config/sphinx.yml
 config/database.yml
+public/stylesheets/common.css
