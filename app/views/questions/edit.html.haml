@@ -1,0 +1,6 @@
+.text.ico= @question.text
+
+= simple_form_for(@question, :html => {:class => 'edit'}) do |f|
+
+  = f.input :answer, :as => :text, :required => true
+  .actions= f.button :submit, t("questions.answer.submit")

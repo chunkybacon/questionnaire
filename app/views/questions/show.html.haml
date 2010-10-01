@@ -1,0 +1,14 @@
+.question
+
+  .text.ico
+    = @question.text
+    .meta= l(@question.created_at)
+
+  - if @question.answer
+    .answer.ico
+      = @question.answer
+      .meta= l(@question.answered_at)
+
+  .actions
+    - unless @question.answer
+      = link_to t('.answer'), edit_question_path(@question.id)

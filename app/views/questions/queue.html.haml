@@ -1,0 +1,6 @@
+.questions.queue
+  - if @questions.blank?
+    .empty= t '.empty'
+  - else
+    = render :partial => 'question', :collection => @questions
+    = will_paginate @questions

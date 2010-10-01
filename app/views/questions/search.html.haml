@@ -1,0 +1,37 @@
+= simple_form_for(:search, :html => {:method => :get}) do |f|
+
+  = f.input :query
+  .actions= f.submit t('.submit')
+
+  .advanced
+
+    .select
+      %label= t('.match_mode')
+      = f.select :match_mode, match_mode_options
+
+    .select
+      %label= t('.order_mode')
+      = f.select :order_mode, order_mode_options
+
+.questions.search
+
+  - if @search && @search.errors.empty?
+
+    - if @questions.blank?
+      .empty= t('.empty')
+    - else
+      .totals= t('.totals', :count => @questions.total_entries)
+      = render :partial => 'search', :collection => @questions, :as => :question
+      = will_paginate(@questions)
+
+  - elsif @search
+
+    .errors
+      - @search.errors.each do |_, message|
+        %span.error= message
+        %br/
+
+  - else
+
+    .empty= t('.pre')
+

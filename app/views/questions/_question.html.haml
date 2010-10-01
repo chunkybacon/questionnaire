@@ -1,0 +1,17 @@
+.question
+  .text.ico
+    = question.text
+    .meta= l(question.created_at)
+
+  - if question.answer
+    .answer.ico
+      = question.answer
+      .meta= l(question.answered_at)
+
+  .actions
+    - unless question.answer
+      = link_to t('.answer'), edit_question_path(question.id)
+      &sdot;
+    = link_to t('.destroy'), question_path(question.id), 'data-method' => 'delete', 'data-confirm' => t('.destroy_confirmation')
+    &sdot;
+    = link_to t('.show', :id => question.id), question_path(question.id)
