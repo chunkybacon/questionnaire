@@ -16,6 +16,7 @@ class Question < ActiveRecord::Base
   before_update do
     self.answered_at = current_time_from_proper_timezone if answer && !answered_at
     self.delta = false unless text_changed? || answer_changed?
+    true
   end
 
   define_index do

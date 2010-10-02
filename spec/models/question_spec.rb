@@ -12,12 +12,13 @@ describe Question do
       @question.answered_at.should == nil
     end
 
-    describe "on update"
+    describe "on update" do
 
       it "does not update answered_at if there's no changes in answer" do
         c = 1.hour.ago
         @question.update_attributes(:created_at => c)
         @question.answered_at.should be_nil
+        @question.reload
         @question.created_at.should == c
       end
 
@@ -38,6 +39,8 @@ describe Question do
         @question.update_attributes(:answer => 'ooops')
         @question.answered_at.should == @now
       end
+
+    end
 
   end
 
@@ -71,6 +74,7 @@ describe Question do
       c = 1.hour.ago
       @question.update_attributes(:created_at => c)
       @question.delta.should == false
+      @question.reload
       @question.created_at.should == c
     end
 
