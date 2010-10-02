@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
 
     @questions.total_entries
 
-  rescue Riddle::ConnectionError
+  rescue Riddle::ConnectionError, Riddle::ResponseError
     @search.errors.add(:base, :unavailable)
   end
 

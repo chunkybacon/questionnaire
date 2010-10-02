@@ -60,6 +60,16 @@ describe QuestionsController do
       search.errors[:base].should include search.errors.generate_message(:base, :unavailable) #not be_blank
     end
 
+    it "handles Riddle::ResponseError" do
+      Question.should_receive(:search).and_raise(Riddle::ResponseError)
+
+      get 'search', :search => {:query => 'whatever'}
+      response.status.should == 200
+      search = assigns(:search)
+
+      search.errors[:base].should include search.errors.generate_message(:base, :unavailable) #not be_blank
+    end
+
   end
 
 end
