@@ -80,4 +80,11 @@ describe Question do
 
   end
 
+  describe "(sphinx) indices" do
+    it { should have_search_index_for(:text) }
+    it { should have_search_index_for(:answer) }
+    it { should have_search_attribute_for(:created_at) }
+    it { should have_search_attribute_for(:answered_at) }
+  end
+
 end
