@@ -2,10 +2,36 @@ require 'spec_helper'
 
 describe QuestionsController do
 
+  describe "#setup_page_if_exists filter" do
+
+    it "does nothing when there's no :page parameter" do
+      get 'queue'
+      request.params.should_not have_key(:page)
+    end
+
+    it "uses valid :page parameter" do
+      get 'queue', :page => '100'
+      request.params[:page].should == 100
+    end
+
+    it "defaults page to 1 otherwise" do
+      get 'queue', :page => '-100'
+      request.params[:page].should == 1
+
+      get 'queue', :page => 'ill-formed'
+      request.params[:page].should == 1
+
+      get 'queue', :page => '0'
+      request.params[:page].should == 1
+    end
+
+  end
+
   describe "#create" do
 
     it "redirects to #new" do
       post 'create', :question => {:text => 'whatever'}
+      flash[:notice].should_not be_nil
       response.should redirect_to new_question_path
     end
 
@@ -16,6 +42,7 @@ describe QuestionsController do
     it "redirects to #answered" do
       question = Factory.create(:question)
       post 'update', :id => question.id, :question => {:answer => 'whatever'}
+      flash[:notice].should_not be_nil
       response.should redirect_to answered_questions_path
     end
 
@@ -28,6 +55,7 @@ describe QuestionsController do
       @request.env['HTTP_REFERER'] = location
       question = Factory.create(:question)
       delete 'destroy', :id => question.id
+      flash[:notice].should_not be_nil
       response.should redirect_to location
     end
 
@@ -36,11 +64,13 @@ describe QuestionsController do
       @request.env['HTTP_REFERER'] = ''
       question = Factory.create(:question)
       delete 'destroy', :id => question.id
+      flash[:notice].should_not be_nil
       response.should redirect_to location
 
-      @request.env['HTTP_REFERER'] = nil # '/'
+      @request.env['HTTP_REFERER'] = nil
       question = Factory.create(:question)
       delete 'destroy', :id => question.id
+      flash[:notice].should_not be_nil
       response.should redirect_to location
     end
 
@@ -57,7 +87,7 @@ describe QuestionsController do
       response.status.should == 200
       search = assigns(:search)
 
-      search.errors[:base].should include search.errors.generate_message(:base, :unavailable) #not be_blank
+      search.errors[:base].should include search.errors.generate_message(:base, :unavailable)
     end
 
     it "handles Riddle::ResponseError" do
@@ -67,7 +97,7 @@ describe QuestionsController do
       response.status.should == 200
       search = assigns(:search)
 
-      search.errors[:base].should include search.errors.generate_message(:base, :unavailable) #not be_blank
+      search.errors[:base].should include search.errors.generate_message(:base, :unavailable)
     end
 
   end

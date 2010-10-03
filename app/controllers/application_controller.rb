@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def setup_page_if_exists
     return unless params.key?(:page)
     page = params[:page].to_i rescue 1
-    page = 1 if page < 0 
+    page = 1 unless page > 0
     params[:page] = page
     nil
   end
