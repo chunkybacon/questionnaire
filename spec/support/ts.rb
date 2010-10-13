@@ -1,39 +1,62 @@
-#http://openmonkey.com/articles/2009/07/thinking-sphinx-rspec-matchers
+# http://openmonkey.com/articles/2009/07/thinking-sphinx-rspec-matchers
+# http://gist.github.com/21755
 
-Spec::Matchers.define(:have_search_index_for) do |*field_names|
+module ThinkingSphinxMatchers
 
-  description do
-    "have a search index for #{field_names.join('.')}"
+  def self.included(group)
+    group.send(:include, Helpers)
   end
 
-  match do |model|
-    all_fields = field_names.dup
-    first_field = all_fields.pop
+  class HaveColumnMatcher
 
-    model.sphinx_indexes.first.fields.select { |field|
-      field.columns.length == 1 &&
-        field.columns.first.__stack == all_fields.map { |s| s.to_sym } &&
-        field.columns.first.__name == first_field.to_sym
-    }.length == 1
+    def initialize(subject, *args)
+      options = args.extract_options!
+
+      raise ArgumentError if args.empty?
+
+      @subject  = subject
+      @indexes  = Array(options[:in])
+      @expected = args.map(&:to_sym)
+    end
+
+    def matches?(target)
+
+      @target = target
+
+      indexes = @target.sphinx_indexes
+      indexes = indexes.select { |i| @indexes.include?(i.name) } unless @indexes.empty?
+      return false if indexes.empty?
+
+      indexes.all? { |i|
+        i.send(@subject).any? { |thing| thing.columns.any? { |c| c.__path == @expected } }
+      }
+
+    end
+
+    def failure_message
+      "expected #{@target} to have a column #{@expected.join('.')} in " \
+      "#{@subject} of #{@indexes.empty? ? 'all' : @indexes.inspect} indexes, " \
+      "but it did not"
+    end
+
+    def negative_failure_message
+      "expected #{@target} NOT to have a column #{@expected.join('.')} in " \
+      "#{@subject} of #{@indexes.empty? ? 'all' : @indexes.inspect} indexes, " \
+      "but it did"
+    end
+
   end
 
-end
+  module Helpers
 
-Spec::Matchers.define(:have_search_attribute_for) do |*attr_names|
+    def have_search_index_for(*args)
+      HaveColumnMatcher.new(:fields, *args)
+    end
 
-  description do
-    "have a search attribute for #{attr_names.join('.')}"
-  end
+    def have_search_attribute_for(*args)
+      HaveColumnMatcher.new(:attributes, *args)
+    end
 
-  match do |model|
-    all_attrs = attr_names.dup
-    first_attr = all_attrs.pop
-
-    model.sphinx_indexes.first.attributes.select { |a|
-      a.columns.length == 1 &&
-        a.columns.first.__stack == all_attrs.map { |s| s.to_sym } &&
-        a.columns.first.__name == first_attr.to_sym
-    }.length == 1
   end
 
 end
