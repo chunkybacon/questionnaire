@@ -25,6 +25,7 @@ class Question < ActiveRecord::Base
     indexes :answer
     has :answered_at, :created_at
     set_property :delta => :delayed
+    set_property :field_weights  => {:text => 2, :answer => 1}
   end
 
 end

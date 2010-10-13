@@ -81,6 +81,11 @@ describe Question do
   end
 
   describe "(sphinx) indices" do
+    include ThinkingSphinxMatchers
+    subject { Question }
+
+    it { should be_indexed_by_sphinx }
+    it { should be_delta_indexed_by_sphinx }
     it { should have_search_index_for(:text) }
     it { should have_search_index_for(:answer) }
     it { should have_search_attribute_for(:created_at) }

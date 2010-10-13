@@ -9,13 +9,7 @@ class QuestionsController < ApplicationController
     @search = Questionnaire::Search.new(params[:search])
     return unless @search.valid?
 
-    @questions = Question.search(@search.query, @search.options(
-      :rank_mode      => :wordcount,
-      :field_weights  => {:text => 2, :answer => 1},
-      :per_page       => 5,
-      :page           => params[:page]
-      ))
-
+    @questions = Question.search(@search.query, @search.options(:rank_mode => :wordcount, :per_page => 5, :page => params[:page]))
     @questions.total_entries
 
   rescue Riddle::ConnectionError, Riddle::ResponseError
