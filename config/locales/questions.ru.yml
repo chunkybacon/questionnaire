@@ -29,6 +29,7 @@ ru:
       totals: 'найдено вопросов: %{count}'
       destroy_confirmation: 'Удалить вопрос?'
       pre: 'Что ищем?'
+      deleted: 'Вопрос был удален.'
       <<: *actions
     queue:
       empty:  'Вопросы, ожидающие ответа, отсутствуют.'

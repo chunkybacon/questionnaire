@@ -36,5 +36,10 @@ gem 'haml'
 group :development, :test do
   gem 'rspec',       ">= 2.0.0.beta.22"
   gem 'rspec-rails', ">= 2.0.0.beta.22"
+end
+
+group :test do
+  gem 'webrat'
   gem 'factory_girl'
+  gem 'faker'
 end
