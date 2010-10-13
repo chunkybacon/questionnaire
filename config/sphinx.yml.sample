@@ -20,5 +20,5 @@ production:
   #searchd_file_path: "/var/sphinx/questionnaire/production"
   max_matches: 10000
   mem_limit: 128M
-  bin_path:"/usr/local/bin""/opt/brew/bin"
+  bin_path:"/usr/local/bin"
 
