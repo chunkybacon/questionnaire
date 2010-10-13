@@ -1,7 +1,7 @@
 module ThinkingSphinx
   class Search
-    def excerpt_for(*args)
-      opts, string, model = args.extract_options!, *args
+    def excerpt_for(string, *args)
+      opts, model = args.extract_options!, args.shift
 
       if model.nil? && one_class
         model ||= one_class
